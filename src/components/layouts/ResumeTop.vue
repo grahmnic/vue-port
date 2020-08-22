@@ -1,27 +1,33 @@
 <template>
   <div class="resume-top w-100 row mx-0">
     <div class="col-5 px-0">
-      <div class="resume-avatar w-100 h-100">
+      <div class="resume-avatar w-100 h-100" :class="{'onSkills': onSkill}">
       </div>
     </div>
-    <div class="resume-info h-100 col-7">  
-      <div class="float-right h-100 py-2">
-        <Entypo class="h-25 py-2 text-left">
-          <Github class="resume-icon"/>
-          <span class="resume-icon-text">github.com/grahmnic</span>
-        </Entypo>
-        <Entypo class="h-25 py-2 text-left">
-          <Linkedin class="resume-icon"/>
-          <span class="resume-icon-text">linkedin.com/in/nickschen/</span>
-        </Entypo>
-        <Entypo class="h-25 py-2 text-left">
-          <Phone class="resume-icon"/>
-          <span class="resume-icon-text">+1-347-650-7523</span>
-        </Entypo>
-        <Entypo class="h-25 py-2 text-left">
-          <Email class="resume-icon"/>
-          <span class="resume-icon-text">grahmnic@gmail.com</span>
-        </Entypo>
+    <div class="resume-info h-100 col-7 d-flex px-0">  
+      <div class="resume-title h-100 col-5 pl-4">
+        <h2>Nick Chen</h2>
+        <p>Software Engineer</p>
+      </div>
+      <div class="col-7 h-100 py-2 px-1">
+        <div class="float-right w-auto h-100">
+          <Entypo class="h-25 text-left">
+            <Github class="resume-icon"/>
+            <a href="https://github.com/grahmnic" target="_blank" class="resume-icon-text">github.com/grahmnic</a>
+          </Entypo>
+          <Entypo class="h-25 text-left">
+            <Linkedin class="resume-icon"/>
+            <a href="https://www.linkedin.com/in/nickschen/" target="_blank" class="resume-icon-text">linkedin.com/in/nickschen/</a>
+          </Entypo>
+          <Entypo class="h-25 text-left">
+            <Phone class="resume-icon"/>
+            <span class="resume-icon-text">+1-347-650-7523</span>
+          </Entypo>
+          <Entypo class="h-25 text-left">
+            <Email class="resume-icon"/>
+            <a href="mailto:grahmnic@gmail.com" class="resume-icon-text">grahmnic@gmail.com</a>
+          </Entypo>
+        </div>
       </div>
     </div>
   </div>
@@ -29,10 +35,11 @@
 
 <script>
 import Entypo from '../util/Entypo.vue'
-import Github from '@entypo-icons/core/icons/github-with-circle.svg';
-import Linkedin from '@entypo-icons/core/icons/linkedin-with-circle.svg';
-import Phone  from '@entypo-icons/core/icons/old-phone.svg';
-import Email from '@entypo-icons/core/icons/mail-with-circle.svg';
+import Github from '@entypo-icons/core/icons/github-with-circle.svg'
+import Linkedin from '@entypo-icons/core/icons/linkedin-with-circle.svg'
+import Phone  from '@entypo-icons/core/icons/old-phone.svg'
+import Email from '@entypo-icons/core/icons/mail-with-circle.svg'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'resume-top',
@@ -45,13 +52,28 @@ export default {
   },
   data: function () {
     return {
-
+      onSkill: false
     }
   },
   mounted: function() {
     document.querySelectorAll('.resume-icon').forEach(e => {
       e.classList.add('resume-icon-animation')
     })
+  },
+  computed: {
+    ...mapGetters([
+      'skillsHovered'
+    ]),
+    getSkillsHovered() {
+      return this.$store.state.hover.skillHovered
+    }
+  },
+  watch: {
+    getSkillsHovered: {
+      handler(val) {
+        this.onSkill = val
+      }
+    }
   }
 }
 </script>
@@ -61,7 +83,9 @@ export default {
 .resume-top {
   border-radius: 4px 4px 0px 0px;
   background-color: $dark-gray;
-  height: 20%;
+  grid-area: rt;
+  @include box-shadow-dark();
+
   .resume-info {
     position: relative;
     z-index: 1;
@@ -82,25 +106,65 @@ export default {
         content: "";
         width: 2%;
         height: 100%;
-        right: calc(1px + 102%);
+        right: calc(1px + 101%);
         bottom: 0;
         background-color: $dark-gray;
         transform-origin: bottom right;
         transform: skewX(15deg);
         z-index: -1;
     }
+    .resume-title {
+      color: $white;
+      text-align: left;
+      white-space: nowrap;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      h2 {
+        margin-bottom: 0 !important;
+      }
+      p {
+        color: $off-white;
+        font-size: 0.85rem;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        width: 1.5%;
+        height: 100%;
+        right: calc(1px + 108%);
+        bottom: 0;
+        background-color: $dark-gray;
+        transform-origin: bottom right;
+        transform: skewX(20deg);
+        z-index: -1;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        width: 1%;
+        height: 100%;
+        right: calc(1px + 112%);
+        bottom: 0;
+        background-color: $dark-gray;
+        transform-origin: bottom right;
+        transform: skewX(25deg);
+        z-index: -1;
+      }
+    }
     .resume-icon {
       height: 75%;
       fill: $orange;
     }
     .resume-icon-animation {
-      animation: 1s bounceIn both 0.1s;
+      //animation: 1s bounceIn both;
     }
     .resume-icon-text {
       color: $orange;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       cursor: pointer;
       margin: 0px 5px;
+      white-space: nowrap;
     }
   }
 
@@ -110,10 +174,19 @@ export default {
     background-repeat: no-repeat;
     background-size: auto 90%;
     background-position: left 25% bottom;
+    transition: all 0.5s ease-out;
+  }
 
-    img {
-      
-    }
+  .onSkills {
+    background-color: #00001f !important;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content:' '; background:rgba(0,0,0,.2);
+    }    
   }
 }
 </style>
