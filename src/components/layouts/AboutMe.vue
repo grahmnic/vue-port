@@ -10,7 +10,6 @@ export default {
 
 <style>
 .resume-about-me {
-    background: blue;
     grid-area: ra;
 }
 </style>

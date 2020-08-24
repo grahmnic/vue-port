@@ -10,7 +10,6 @@ export default {
 
 <style>
 .resume-projects {
-    background: purple;
     grid-area: rp;
 }
 </style>

@@ -1,10 +1,17 @@
 <template>
-  <div class="resume-skills py-3 px-3" @mouseenter="skillHover" @mouseleave="skillLeave">
-      <gloss :activate="isHovered" section="skills" :blobs="blobs"/>
-      <bar class="py-2" :activate="isHovered" section="bar1" :progress="85" />
-      <bar class="py-2" :activate="isHovered" section="bar2" :progress="80" />
-      <bar class="py-2" :activate="isHovered" section="bar3" :progress="65" />
-      <bar class="py-2" :activate="isHovered" section="bar4" :progress="40" />
+  <div class="resume-skills py-3 px-3 d-flex flex-column align-items-center" @mouseenter="skillHover" @mouseleave="skillLeave">
+      <div>
+        <gloss :activate="isHovered" section="skills" :blobs="blobs1"/>
+        <div class="py-2"></div>
+        <gloss :activate="isHovered" section="skills" :blobs="blobs2"/>
+        <bar class="py-2" :activate="isHovered" section="bar1" :progress="85" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs3"/>
+        <bar class="py-2" :activate="isHovered" section="bar2" :progress="80" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs4"/>
+        <bar class="py-2" :activate="isHovered" section="bar3" :progress="65" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs5"/>
+        <bar class="py-2" :activate="isHovered" section="bar4" :progress="40" />
+      </div>
   </div>
 </template>
 
@@ -21,7 +28,7 @@ export default {
     },
     data: () => {
         return {
-            blobs: [
+            blobs1: [
                 {color: 'light', size: '3'},
                 {color: 'light', size: '4'},
                 {color: 'dark', size: '5'},
@@ -32,7 +39,19 @@ export default {
                 {color: 'dark', size: '3'},
                 {color: 'dark', size: '3'},
                 {color: 'light', size: '6'},
-            ]
+            ],
+            blobs2: [
+                {color: 'light', size: '2'},
+            ],
+            blobs3: [
+                {color: 'light', size: '3'},
+            ],
+            blobs4: [
+                {color: 'light', size: '3'},
+            ],
+            blobs5: [
+                {color: 'light', size: '2'},
+            ],
         }
     },
     methods: {
@@ -58,5 +77,7 @@ export default {
 .resume-skills {
     grid-area: rs;
     cursor: pointer;
+    transition: all 0.5s ease-out;
+    position: relative;
 }
 </style>

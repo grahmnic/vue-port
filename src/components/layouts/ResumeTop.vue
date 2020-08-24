@@ -178,7 +178,7 @@ export default {
   }
 
   .onSkills {
-    background-color: #00001f !important;
+    background-color: #78788d !important;
     &::after {
       position: absolute;
       top: 0;

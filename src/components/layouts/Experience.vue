@@ -10,7 +10,6 @@ export default {
 
 <style>
 .resume-experience {
-    background: yellow;
     grid-area: re;
 }
 </style>
