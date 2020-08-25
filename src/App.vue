@@ -53,7 +53,7 @@ export default {
           this.component = this.view;
           e.classList.remove('page-transition-in')
           e.classList.add('page-transition-out')
-        }.bind(this), 2500)
+        }.bind(this), 2000)
       }
     }
   }
@@ -80,11 +80,11 @@ export default {
       overflow: hidden;
 
       .page-transition-in {
-        animation: rise 2s cubic-bezier(0,.65,1,.6) forwards;
+        animation: rise 2s cubic-bezier(0.85, 0, 0.15, 1) forwards;
       }
 
       .page-transition-out {
-        animation: sink 2s cubic-bezier(0,.65,1,.6) forwards;
+        animation: sink 2s cubic-bezier(0.85, 0, 0.15, 1) forwards;
       }
 
       @keyframes rise {
@@ -115,11 +115,11 @@ export default {
             animation: wave 1.5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
             transform: translate3d(0, 0, 0);
           }
-          .wave:nth-of-type(2) {
-            top: -175px;
-            animation: wave 1.5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 1.5s ease -1.25s infinite;
-            opacity: 1;
-          }
+          // .wave:nth-of-type(2) {
+          //   top: -175px;
+          //   animation: wave 1s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 1.5s ease -1.25s infinite;
+          //   opacity: 1;
+          // }
         }
       }
   }
