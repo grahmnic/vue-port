@@ -12,17 +12,22 @@ module.exports = {
         port: 5000
     },
     chainWebpack: (config) => {
-      const svgRule = config.module.rule('svg');
-      inlineSvgRule = config.module.rule('inline-svg');
+      const svgRule = config.module.rule('svg')
 
+      svgRule.uses.clear()
+  
       svgRule
-          .exclude
-          .add(/inline\.(.*)\.svg/)
-          .end()
-
-      inlineSvgRule
-          .test(/inline\.(.*)\.svg/)
-          .use('vue-svg-loader')
-          .loader('vue-svg-loader')
+        .oneOf('inline')
+        .resourceQuery(/inline/)
+        .use('vue-svg-loader')
+        .loader('vue-svg-loader')
+        .end()
+        .end()
+        .oneOf('external')
+        .use('file-loader')
+        .loader('file-loader')
+        .options({
+          name: 'assets/[name].[hash:8].[ext]'
+        })
       },
   };

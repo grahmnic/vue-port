@@ -1,5 +1,5 @@
 <template>
-  <div class="resume-skills py-3 px-3 d-flex flex-column align-items-center" @mouseenter="skillHover" @mouseleave="skillLeave">
+  <div class="resume-skills py-3 px-3 d-flex flex-column align-items-center" @mouseenter="skillHover" @mouseleave="skillLeave" @click="changeView">
       <div>
         <gloss :activate="isHovered" section="skills" :blobs="blobs1"/>
         <div class="py-2"></div>
@@ -60,6 +60,9 @@ export default {
         },
         skillLeave() {
             this.$store.commit('hover:setSkills', false)
+        },
+        changeView() {
+            this.$store.commit('view:set', 'skills-view')
         }
     },
     computed: {

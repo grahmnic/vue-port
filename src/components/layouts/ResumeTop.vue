@@ -35,10 +35,10 @@
 
 <script>
 import Entypo from '../util/Entypo.vue'
-import Github from '@entypo-icons/core/icons/github-with-circle.svg'
-import Linkedin from '@entypo-icons/core/icons/linkedin-with-circle.svg'
-import Phone  from '@entypo-icons/core/icons/old-phone.svg'
-import Email from '@entypo-icons/core/icons/mail-with-circle.svg'
+import Github from '@entypo-icons/core/icons/github-with-circle.svg?inline'
+import Linkedin from '@entypo-icons/core/icons/linkedin-with-circle.svg?inline'
+import Phone  from '@entypo-icons/core/icons/old-phone.svg?inline'
+import Email from '@entypo-icons/core/icons/mail-with-circle.svg?inline'
 import { mapGetters } from 'vuex'
 
 export default {
