@@ -2,7 +2,7 @@
     <div class="bar-wrapper">
         <div class="bar-outer w-100">
             <div class="h-100" :style="'width: ' + progress + '%'">
-                <div :id="section" class="h-100">
+                <div :id="section" class="h-100" :class="color">
                 </div>
             </div>
         </div>
@@ -16,7 +16,8 @@ export default {
     props: {
         activate: Boolean,
         section: String,
-        progress: Number
+        progress: Number,
+        color: String
     },
     mounted: function() {
 
@@ -56,7 +57,6 @@ export default {
         background-color: $gray;
 
         div div {
-            background-color: $light-gray;
             width: 10%;
         }
 

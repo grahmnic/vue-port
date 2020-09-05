@@ -46,9 +46,40 @@ export default {
   "rs rs re re re"
   "rs rs re re re"
   "rs rs rp rp rp"
-  "rs rs rp rp rp"
+  "ra ra rp rp rp"
   "ra ra rp rp rp"
   "ra ra rp rp rp"
   "ra ra rp rp rp";
+
+  > div:not(:first-child) {
+    overflow: hidden;
+  }
+
+  .offwhite {
+    color: $off-white !important;
+
+    &:first-letter {
+      color: $orange;
+    }
+  }
+  
+  .view-title {
+    color: $light-gray;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 1.15rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0.2rem;
+      height: 1.15rem;
+      top: 15%;
+      left: -10px;
+      background: $gray;
+    }
+  }
 }
 </style>

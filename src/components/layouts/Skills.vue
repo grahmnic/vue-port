@@ -1,17 +1,19 @@
 <template>
-  <div class="resume-skills px-3 py-1" @mouseenter="hover" @mouseleave="leave" @click="changeView">
+  <div class="resume-skills px-3" @mouseenter="hover" @mouseleave="leave" @click="changeView">
+      <div class="view-title m-2" :class="{'offwhite': isHovered}">
+        Skills
+      </div>
       <div class="w-100">
-        <div class="py-2"></div>
-        <gloss :activate="isHovered" section="skills" :blobs="blobs2"/>
-        <bar class="py-2" :activate="isHovered" section="bar1" :progress="85" />
-        <gloss :activate="isHovered" section="skills" :blobs="blobs3"/>
-        <bar class="py-2" :activate="isHovered" section="bar2" :progress="80" />
-        <gloss :activate="isHovered" section="skills" :blobs="blobs4"/>
-        <bar class="py-2" :activate="isHovered" section="bar3" :progress="65" />
-        <gloss :activate="isHovered" section="skills" :blobs="blobs5"/>
-        <bar class="py-2" :activate="isHovered" section="bar4" :progress="40" />
-        <gloss :activate="isHovered" section="skills" :blobs="blobs6"/>
-        <bar class="py-2" :activate="isHovered" section="bar5" :progress="40" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs2" :height="1"/>
+        <bar class="py-2" :activate="isHovered" section="bar1" :progress="95" :color="'orange'" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs3" :height="1"/>
+        <bar class="py-2" :activate="isHovered" section="bar2" :progress="90" :color="'orange'" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs4" :height="1"/>
+        <bar class="py-2" :activate="isHovered" section="bar3" :progress="75" :color="'orange'" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs6" :height="1"/>
+        <bar class="py-2" :activate="isHovered" section="bar5" :progress="50" :color="'orange'" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs7" :height="1"/>
+        <bar class="py-2" :activate="isHovered" section="bar6" :progress="45" :color="'orange'" />
       </div>
   </div>
 </template>
@@ -30,22 +32,25 @@ export default {
     data: () => {
         return {
             blobs2: [
-                {color: 'light', size: '2'},
+                {color: 'light', size: '4'},
+                {color: 'none', size: '8'},
             ],
             blobs3: [
                 {color: 'light', size: '3'},
+                {color: 'none', size: '9'},
             ],
             blobs4: [
-                {color: 'light', size: '3'},
-            ],
-            blobs5: [
-                {color: 'light', size: '2'},
+                {color: 'light', size: '4'},
+                {color: 'none', size: '8'},
             ],
             blobs6: [
-                {color: 'light', size: '4'}
+                {color: 'light', size: '3'},
+                {color: 'light', size: '4'},
+                {color: 'none', size: '5'},
             ],
             blobs7: [
-                {color: 'light', size: '2'}
+                {color: 'light', size: '5'},
+                {color: 'none', size: '7'},
             ]
         }
     },

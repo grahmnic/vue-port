@@ -1,7 +1,12 @@
 <template>
   <div class="resume-top w-100 row mx-0">
     <div class="col-5 px-0">
-      <div class="resume-avatar w-100 h-100" :class="{'onSkills': onSkill}">
+      <div class="resume-avatar w-100 h-100" :class="{
+        'onSkills': skillHovered,
+        'onAboutMe': aboutMeHovered,
+        'onExperience': experienceHovered,
+        'onProjects': projectsHovered
+        }">
       </div>
     </div>
     <div class="resume-info h-100 col-7 d-flex px-0">  
@@ -10,8 +15,8 @@
         <p>Software Engineer</p>
       </div>
       <div class="contacts-icon d-md-none py-1 px-3">
-        <font-awesome-icon class="orange" v-click-outside="hide" icon="caret-down" @click="show"/>
-        <div v-show="displayContacts" class="contacts-modal d-md-none">
+        <font-awesome-icon class="caret" v-click-outside="hide" icon="caret-down" @click="show"/>
+        <div id="contacts-modal" v-show="displayContacts" class="contacts-modal d-md-none">
           <Entypo class="text-left">
             <Github class="resume-icon"/>
             <a href="https://github.com/grahmnic" target="_blank" class="resume-icon-text">github.com/grahmnic</a>
@@ -65,6 +70,7 @@ import ClickOutside from 'vue-click-outside'
 
 export default {
   name: 'resume-top',
+  el: ".contacts-modal",
   components: {
     Entypo,
     Github,
@@ -82,24 +88,18 @@ export default {
     ClickOutside
   },
   mounted: function() {
+    this.popupItem = document.querySelector('#contacts-modal')
     document.querySelectorAll('.resume-icon').forEach(e => {
       e.classList.add('resume-icon-animation')
     })
   },
   computed: {
     ...mapGetters([
-      'skillsHovered'
+      'skillHovered',
+      'aboutMeHovered',
+      'experienceHovered',
+      'projectsHovered'
     ]),
-    getSkillsHovered() {
-      return this.$store.state.hover.skillHovered
-    }
-  },
-  watch: {
-    getSkillsHovered: {
-      handler(val) {
-        this.onSkill = val
-      }
-    }
   },
   methods: {
     show() {
@@ -200,7 +200,7 @@ export default {
       white-space: nowrap;
     }
 
-    .orange {
+    .caret {
       color: $orange;
       cursor: pointer;
       transition: all 0.5s ease-out;
@@ -221,15 +221,19 @@ export default {
   }
 
   .onSkills {
-    background-color: #78788d !important;
-    &::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      content:' '; background:rgba(0,0,0,.2);
-    }    
+    background-color: #ef534f !important;
+  }
+
+  .onAboutMe {
+    background-color: #8e99f3 !important;
+  }
+
+  .onExperience {
+    background-color: #ffca28 !important;
+  }
+
+  .onProjects {
+    background-color: #9ccc65 !important;
   }
 }
 
