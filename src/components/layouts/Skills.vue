@@ -1,7 +1,6 @@
 <template>
-  <div class="resume-skills py-3 px-3 d-flex flex-column align-items-center" @mouseenter="skillHover" @mouseleave="skillLeave" @click="changeView">
-      <div>
-        <gloss :activate="isHovered" section="skills" :blobs="blobs1"/>
+  <div class="resume-skills px-3 py-1" @mouseenter="hover" @mouseleave="leave" @click="changeView">
+      <div class="w-100">
         <div class="py-2"></div>
         <gloss :activate="isHovered" section="skills" :blobs="blobs2"/>
         <bar class="py-2" :activate="isHovered" section="bar1" :progress="85" />
@@ -11,6 +10,8 @@
         <bar class="py-2" :activate="isHovered" section="bar3" :progress="65" />
         <gloss :activate="isHovered" section="skills" :blobs="blobs5"/>
         <bar class="py-2" :activate="isHovered" section="bar4" :progress="40" />
+        <gloss :activate="isHovered" section="skills" :blobs="blobs6"/>
+        <bar class="py-2" :activate="isHovered" section="bar5" :progress="40" />
       </div>
   </div>
 </template>
@@ -28,18 +29,6 @@ export default {
     },
     data: () => {
         return {
-            blobs1: [
-                {color: 'light', size: '3'},
-                {color: 'light', size: '4'},
-                {color: 'dark', size: '5'},
-                {color: 'light', size: '6'},
-                {color: 'light', size: '6'},
-                {color: 'dark', size: '8'},
-                {color: 'light', size: '4'},
-                {color: 'dark', size: '3'},
-                {color: 'dark', size: '3'},
-                {color: 'light', size: '6'},
-            ],
             blobs2: [
                 {color: 'light', size: '2'},
             ],
@@ -52,13 +41,19 @@ export default {
             blobs5: [
                 {color: 'light', size: '2'},
             ],
+            blobs6: [
+                {color: 'light', size: '4'}
+            ],
+            blobs7: [
+                {color: 'light', size: '2'}
+            ]
         }
     },
     methods: {
-        skillHover() {
+        hover() {
             this.$store.commit('hover:setSkills', true)
         },
-        skillLeave() {
+        leave() {
             this.$store.commit('hover:setSkills', false)
         },
         changeView() {

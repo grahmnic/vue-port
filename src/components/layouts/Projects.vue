@@ -1,5 +1,6 @@
 <template>
-  <div class="resume-projects"></div>
+  <div class="resume-projects">
+  </div>
 </template>
 
 <script>

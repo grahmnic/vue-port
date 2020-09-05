@@ -84,7 +84,7 @@ export default {
       }
 
       .page-transition-out {
-        animation: sink 2s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+        animation: sink 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
       }
 
       @keyframes rise {
@@ -109,7 +109,7 @@ export default {
           .wave {
             background: url(./assets/wave.svg) repeat-x; 
             position: absolute;
-            top: -198px;
+            top: -190px;
             width: 6400px;
             height: 198px;
             animation: wave 1.5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
