@@ -1,5 +1,5 @@
 <template>
-  <div class="resume-experience w-100 px-3" @mouseenter="hover" @mouseleave="leave" @click="changeView">
+  <div class="resume-experience w-100 px-3 border-default" @mouseenter="hover" @mouseleave="leave" @click="changeView">
     <div class="view-title m-2" :class="{'offwhite': isHovered}">
       Experience
     </div>
@@ -21,8 +21,8 @@ export default {
       return {
           blobs1: [
               {color: 'orange', size: 4},
-              {color: 'none', size: 6},
-              {color: 'light', size: 2},
+              {color: 'none', size: 6.5},
+              {color: 'light', size: 1.5},
               {color: 'light', size: 3},
               {color: 'none', size: 7},
               {color: 'light', size: 2},
@@ -39,8 +39,8 @@ export default {
               {color: 'light', size: 2},
               {color: 'dark', size: 3},
               {color: 'dark', size: 5},
-              {color: 'none', size: 2},
-              {color: 'light', size: 2},
+              {color: 'none', size: 2.5},
+              {color: 'light', size: 1.5},
               {color: 'dark', size: 5},
               {color: 'dark', size: 7},
           ],

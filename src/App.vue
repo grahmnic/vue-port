@@ -73,7 +73,7 @@ export default {
 
   .portfolio-wrapper {
     .inner-wrapper {
-      max-width: 45rem !important;
+      max-width: 40rem !important;
     
       border-radius: 5px;
       position: relative;

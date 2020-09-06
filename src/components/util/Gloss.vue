@@ -1,5 +1,5 @@
 <template>
-    <div :id="section" class="gloss mx-0">
+    <div :id="section" class="gloss mx-0" :style="{'width': width + '%'}">
         <div v-for="(blob, index) in blobs" :key="index" :class="blob.color" :style="{ 'width': ((blob.size * 100) / 12) + '%', 'height': + height + 'rem' }"></div>
     </div>
 </template>
@@ -11,7 +11,8 @@ export default {
         activate: Boolean,
         section: String,
         blobs: Array,
-        height: Number
+        height: Number,
+        width: Number,
     },
     mounted: function() {
         document.querySelectorAll('#' + this.section + ' div').forEach((e,i) => {
@@ -45,8 +46,10 @@ export default {
 <style lang="scss">
 .gloss {
     font-size: 0;
+    border-color: inherit;
     div {
-        border: $dark-gray 4px solid;
+        border: 4px solid;
+        border-color: inherit;
         border-radius: 50px/50px;
         opacity: 0.5;
         display: inline-block;
@@ -54,15 +57,15 @@ export default {
 }
 
 .light {
-    background: $off-white;
+    background-color: $off-white;
 }
 .dark {
-    background: $gray;
+    background-color: $gray;
 }
 .orange {
-    background: $orange;
+    background-color: $orange;
 }
 .none {
-    background: transparent;
+    background-color: transparent;
 }
 </style>

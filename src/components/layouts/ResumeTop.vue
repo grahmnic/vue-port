@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="resume-info h-100 col-7 d-flex px-0">  
-      <div class="resume-title h-100 col-md-5 text-sm-center pl-4">
+      <div class="resume-title h-100 col-md-5 text-center text-md-left pl-2">
         <h2>Nick Chen</h2>
         <p>Software Engineer</p>
       </div>
@@ -35,7 +35,7 @@
           </Entypo>
         </div>
       </div>
-      <div class="col-md-7 d-none d-md-block h-100 py-2 px-1">
+      <div class="col-md-7 d-none d-md-block h-100 py-2 px-2">
         <div class="float-right w-auto h-100">
           <Entypo class="h-25 text-left">
             <Github class="resume-icon"/>

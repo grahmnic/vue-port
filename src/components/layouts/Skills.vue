@@ -3,7 +3,7 @@
       <div class="view-title m-2" :class="{'offwhite': isHovered}">
         Skills
       </div>
-      <div class="w-100">
+      <div class="w-100 border-default">
         <gloss :activate="isHovered" section="skills" :blobs="blobs2" :height="1"/>
         <bar class="py-2" :activate="isHovered" section="bar1" :progress="95" :color="'orange'" />
         <gloss :activate="isHovered" section="skills" :blobs="blobs3" :height="1"/>

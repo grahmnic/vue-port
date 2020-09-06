@@ -3,35 +3,48 @@
     <div class="view-title m-2" :class="{'offwhite': isHovered}">
       Projects
     </div>
-    <div class="resume-container">
-        <gloss :activate="isHovered" section="projects" :height="1.25" :blobs="blobs1"/>
-    </div>
+    <container class="my-3" :isHovered="isHovered">
+        <gloss :activate="isHovered" section="projects" :height="1" :blobs="blobs1"/>
+        <gloss :activate="isHovered" section="projects" :height="0.75" :blobs="blobs2"/>
+    </container>
+    <container class="my-3" :isHovered="isHovered">
+        <gloss :activate="isHovered" section="projects" :height="1" :blobs="blobs1"/>
+        <gloss :activate="isHovered" section="projects" :height="0.75" :blobs="blobs2"/>
+    </container>
+    <container class="my-3" :isHovered="isHovered">
+        <gloss :activate="isHovered" section="projects" :height="1" :blobs="blobs1"/>
+        <gloss :activate="isHovered" section="projects" :height="0.75" :blobs="blobs2"/>
+    </container>
   </div>
 </template>
 
 <script>
 import Gloss from '../util/Gloss.vue'
+import Container from '../util/Container.vue'
 import { mapGetters } from 'vuex'
 
 export default {
     name: "projects",
     components: {
-      Gloss
+      Gloss,
+      Container
     },
     data() {
       return {
           blobs1: [
               {color: 'orange', size: 3},
-              {color: 'light', size: 4},
-              {color: 'dark', size: 5},
-              {color: 'light', size: 6},
-              {color: 'light', size: 6},
+              {color: 'none', size: 9},
+              {color: 'dark', size: 4},
               {color: 'dark', size: 8},
-              {color: 'light', size: 4},
-              {color: 'dark', size: 3},
-              {color: 'orange', size: 3},
-              {color: 'none', size: 6},
+              {color: 'light', size: 6},
+              {color: 'dark', size: 2.5},
+              {color: 'dark', size: 3.5},
           ],
+          blobs2: [
+              {color: 'none', size: 10},
+              {color: 'orange', size: 1},
+              {color: 'light', size: 1},
+          ]
       }
     },
 
@@ -63,10 +76,5 @@ export default {
     cursor: pointer;
     transition: all 0.5s ease-out;
     position: relative;
-}
-
-.resume-container {
-  border-radius: 2.5px;
-  border: 1px solid $light-gray;
 }
 </style>
